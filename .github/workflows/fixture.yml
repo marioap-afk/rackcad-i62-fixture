@@ -1,0 +1,22 @@
+name: fixture
+on:
+  push:
+permissions:
+  contents: read
+jobs:
+  fixture-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - run: dotnet build tests/Fixture.Tests/Fixture.Tests.csproj -c Release
+  fixture-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - run: dotnet test tests/Fixture.Tests/Fixture.Tests.csproj -c Release
