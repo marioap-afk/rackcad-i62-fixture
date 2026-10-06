@@ -1,0 +1,30 @@
+{
+  "State": "docs/automation/state/FX-U1.yml",
+  "RecordVersion": 1,
+  "Point": "BOOTSTRAP",
+  "FileSha256": "820c0f53e4fa7cbb0012564c28c162a33a126318a1f4d1d75f1777730895e51a",
+  "PowerShell": {
+    "Edition": "Core",
+    "Version": "7.6.6"
+  },
+  "Phase1": {
+    "Schema": "docs/automation/agent-execution/schemas/automation-state.v2.schema.json",
+    "Blob": "b1105dc1c5ea29d1a717eefea03e5242423762d8",
+    "Command": "YAML (PyYAML safe_load) -> JSON | Test-Json -SchemaFile",
+    "Result": true
+  },
+  "Checks": {
+    "Schema": true,
+    "StateRefsInTree": true,
+    "NoSelfReference": true,
+    "RecordVersion1": true,
+    "BootstrapShape": true,
+    "ProtocolBasis": true,
+    "BindingPreflightCoherent": true,
+    "LastEvidenceCommitPublishedAncestor": true
+  },
+  "NotExecuted": [
+    "I-S01..I-S18, I-P01..I-P13, I-H01, I-H02: los validadores deterministas de tests/RackCad.Tests (README §17.5) no existen en este fixture; se registran como no ejecutadas, nunca como superadas"
+  ],
+  "ValidatedUtc": "2026-10-06T22:07:06.988Z"
+}
