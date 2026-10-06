@@ -240,5 +240,10 @@
       "Reason": "pruebas xUnit del fixture (D.1)"
     }
   ],
-  "Activation": null
+  "Activation": {
+    "Marker": "TEST-ACTIVATION",
+    "Trailer": "Agent-Protocol-Normative: I-62",
+    "Rule": "AUTOMATION_PLAN 16.14 aplicado a ESTE repositorio: I62_EFFECTIVE_SHA del fixture = primer merge en first-parent de main cuyo segundo padre alcanza el único commit con el trailer; RackCad no se activa (derivación por repositorio)",
+    "Tag": "test-activation/I-62"
+  }
 }
