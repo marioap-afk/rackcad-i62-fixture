@@ -1,0 +1,40 @@
+{
+  "Contract": {
+    "Path": "docs/automation/decisions/FX-U1-T1.gate-contract.json",
+    "Blob": "628d89af5f21e4e14cbe7c3c14f0dd8fb5a490e0",
+    "Commit": "d30fb6a9d26c0b5cb189a30b98ec97d0edcb7b99",
+    "Sha256": "8f34367053cf94a7e1523252731b23c84b53f8117dafe4658912bc96c20d5adc"
+  },
+  "Order": "FX-U1-O2 §1",
+  "PowerShell": {
+    "Edition": "Core",
+    "Version": "7.6.6"
+  },
+  "A1": {
+    "Schema": "docs/automation/agent-execution/schemas/gate-contract.v2.schema.json",
+    "Blob": "f644bb1941656b65c62ee474bf37752d328fd091",
+    "Command": "Test-Json -SchemaFile",
+    "Result": true
+  },
+  "Checks": {
+    "A1_Schema": true,
+    "G1": true,
+    "G2": true,
+    "G3_A6": true,
+    "Unit": true,
+    "Blob": true,
+    "AuthorityRevision": true,
+    "MaterializationClose": true,
+    "MainSha": true,
+    "RoutingRequirements": true,
+    "ScopePathsExist": true,
+    "ScopeDisjoint": true,
+    "RequiredTestsProject": true,
+    "P16_NoRealRepo": true
+  },
+  "NotApplicable": [
+    "G4-G7, A2', A3'-A5', A7', A8': exigen una delegación/v2 y el binding aceptado del ejecutor; T1 no tiene delegación ni Controller vinculado (binding pendiente)"
+  ],
+  "ValidatedUtc": "2026-10-06T23:16:41.505Z",
+  "Accepted": true
+}

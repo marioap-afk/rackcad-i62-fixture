@@ -1,0 +1,43 @@
+{
+  "State": "docs/automation/state/FX-U1.yml",
+  "RecordVersion": 3,
+  "Point": "QH",
+  "Transition": "T17",
+  "PreviousPoint": {
+    "Commit": "d30fb6a9d26c0b5cb189a30b98ec97d0edcb7b99",
+    "RecordVersion": 2,
+    "Point": "QU"
+  },
+  "FileSha256": "3b69edfb04c6f4c5b65cf5efbe85edc83d75a552201f6f796eeb48a13cb64261",
+  "PowerShell": {
+    "Edition": "Core",
+    "Version": "7.6.6"
+  },
+  "Phase1": {
+    "Schema": "docs/automation/agent-execution/schemas/automation-state.v2.schema.json",
+    "Blob": "b1105dc1c5ea29d1a717eefea03e5242423762d8",
+    "Command": "YAML (PyYAML safe_load) -> JSON | Test-Json -SchemaFile",
+    "Result": true
+  },
+  "Checks": {
+    "Schema": true,
+    "StateRefsInTree": true,
+    "G0DecisionRefsPinned": true,
+    "NoSelfReference": true,
+    "TargetResolves": true,
+    "CasRecordVersion": true,
+    "T17_FromNonQ0": true,
+    "QhShape": true,
+    "TaskIntent": true,
+    "ProtocolImmutable": true,
+    "PrincipalUnchanged": true,
+    "WindowCountersUntouched": true,
+    "ImmutableIdentity": true,
+    "MainNotAdvanced": true
+  },
+  "Notes": "protocol.g0_acceptance.decision y custody.principal.acceptance.decision siguen en el blob bdc8e4d de la decisión G0 (commit 5a3a7d6), presente en la rama; el archivo de decisiones creció después (7001b41, solo añadido de la orden FX-U1-O2). Lectura elegida por el Coordinator en la sesión del Principal (2026-10-06): mantener el blob de la decisión; README §17.1 paso 3 se aplica a los artefactos copiados por la sesión en el punto. Conflicto de reglas (README §17.1 paso 3 frente a AUTOMATION_PLAN 16.28) sin decisión registrada en decisions/FX-U1.md.",
+  "NotExecuted": [
+    "I-S01..I-S18, I-P01..I-P13, I-H01, I-H02: los validadores deterministas de tests/RackCad.Tests (README §17.5) no existen en este fixture; se registran como no ejecutadas, nunca como superadas"
+  ],
+  "ValidatedUtc": "2026-10-06T23:16:44.081Z"
+}
