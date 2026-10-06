@@ -37,3 +37,21 @@ BootstrapRecordVersion: 1
 ```
 
 Siguiente paso de la orden FX-U1-O1: el QU con las aceptaciones; después, espera aquí el contrato de la tarea T1.
+
+## Orden FX-U1-O2 — contrato de T1 y punto quiescente de relevo (QH)
+
+```text
+FIXTURE-ORDER: FX-U1-O2
+Unit: FX-U1
+Plane: c (TEST-ACTIVATION)
+Contract: docs/automation/decisions/FX-U1-T1.gate-contract.json (rackcad-gate-contract/v2, blob 628d89af5f21e4e14cbe7c3c14f0dd8fb5a490e0)
+```
+
+1. **Contrato.** Este Coordinator emite el contrato de la tarea T1 en la ruta de arriba (en este mismo commit; `AuthorityRevision` y
+   `MaterializationCloseSha` = el BOOTSTRAP `1746b404`; `MainSha` = F_eff). Custódialo según 16.20-16.22.
+2. **Relevo.** No abras ventana ni planifiques T1. Publica el punto **QH** de FX-U1 por CAS (`rackcad-automation-state/v2`): `task_intent` = T1 (`Attempt`
+   vigente, FIRST, contrato custodiado, Controller de planificación con binding pendiente), `principal.state` = RELEASED y `window` CLOSED. Push a `origin`
+   y a `github`.
+3. **Terminación.** Tras el push del QH, termina tu sesión: no hagas nada más en este repositorio.
+4. **Transportes.** No invoques `codex-cli` ni lances subagentes en esta orden.
+5. **Plano (c).** No nombres, no configures y no uses ningún repositorio real (P-16).
