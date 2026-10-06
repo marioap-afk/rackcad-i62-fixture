@@ -21,3 +21,19 @@ Plane: c (TEST-ACTIVATION)
 4. **Transportes.** No invoques `codex-cli` hasta que este Coordinator lo autorice aquí: hoy su transporte está detenido por un cambio de huella
    (P-01), pendiente de una decisión del Owner.
 5. **Plano (c).** No nombres, no configures y no uses ningún repositorio real (P-16).
+
+## Decisión G0 de FX-U1 (Coordinator del fixture)
+
+Sobre el BOOTSTRAP `1746b404e57d69170ecfc084fd24fa3e699916d7` (`record_version` 1): estado `rackcad-automation-state/v2`, binding del Principal
+`B20261006T220601Z-cfe1` (`rackcad-binding/v1`) y preflight CUSTODY `P20261006T220134Z-20ab` (ELIGIBLE), validados contra los esquemas del fixture.
+G0 GATE PASS con adopción I62 y aceptación del binding propuesto:
+
+```text
+I62-DELEGATED-EXECUTION: I62_DELEGATED
+I62-CLASSIFICATION: I62
+I62-PRINCIPAL-BINDING: B20261006T220601Z-cfe1 ACCEPTED
+Claim-Id: fc62f1c7-0000-4000-8000-000000000001
+BootstrapRecordVersion: 1
+```
+
+Siguiente paso de la orden FX-U1-O1: el QU con las aceptaciones; después, espera aquí el contrato de la tarea T1.
