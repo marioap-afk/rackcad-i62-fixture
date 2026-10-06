@@ -1,0 +1,35 @@
+{
+  "BindingId": "B20261006T220601Z-cfe1",
+  "File": "B20261006T220601Z-cfe1.json",
+  "FileSha256": "7eafa02893bfd4f4da034cc6ac36afc0df3b4bfd1153c0e270439d3751ab6057",
+  "PreviousVersion": {
+    "Path": "docs/automation/evidence/FX-U1-agent/bootstrap/B20261006T220601Z-cfe1.json",
+    "Blob": "652462a76b337067558e6dfe7a13810cb29f5a7c"
+  },
+  "AuthorityRevision": "5a3a7d69d650dfa9d0349c5464e245936dc2e187",
+  "PowerShell": {
+    "Edition": "Core",
+    "Version": "7.6.6"
+  },
+  "Phase1": {
+    "Schema": "docs/automation/agent-execution/schemas/binding.v1.schema.json",
+    "Blob": "13501476b775ca18c4c61ba3e1793796b51067d9",
+    "Command": "Test-Json -SchemaFile",
+    "Result": true
+  },
+  "Rules": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "B4": true,
+    "B5": true,
+    "B6": true,
+    "B7": true,
+    "B8": true,
+    "B9": true,
+    "B10": true
+  },
+  "Notes": "B10: única diferencia con la versión PENDING es Acceptance (PENDING -> ACCEPTED). B9: el marcador figura una sola vez en el bloque cercado de la decisión G0 del Coordinator (commit 5a3a7d6). B6 sin referencias: aún no hay contrato de gate.",
+  "ValidatedUtc": "2026-10-06T22:51:43.594Z",
+  "Accepted": true
+}
