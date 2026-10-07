@@ -1,0 +1,85 @@
+{
+  "Schema": "rackcad-binding/v1",
+  "BindingId": "B20261007T023706Z-5fdd",
+  "UnitId": "FX-U1",
+  "Scope": "UNIT",
+  "TaskId": null,
+  "Role": "PRINCIPAL_COORDINATOR",
+  "ProtocolSet": "rackcad-protocol/I62",
+  "Actor": {
+    "AdapterId": "claude-desktop-session",
+    "InstanceId": "local_b70524e3-5788-4772-9f90-e2f45d83c350",
+    "InstanceIdSource": "get_session(\"self\").sessionId",
+    "Assurance": "RUNTIME_OBSERVED"
+  },
+  "Session": {
+    "AdapterId": "claude-desktop-session",
+    "SessionId": "local_b70524e3-5788-4772-9f90-e2f45d83c350",
+    "Assurance": "RUNTIME_OBSERVED"
+  },
+  "Cell": {
+    "CellId": "claude-desktop-session:claude-opus-5-5:Long-horizon",
+    "CatalogBlob": "166d978d114e635bbef67e295c2ec1da73af6d1f",
+    "AdapterId": "claude-desktop-session",
+    "Model": "claude-opus-5-5",
+    "EffortSemantic": "Long-horizon",
+    "EffortProvider": "xhigh"
+  },
+  "PreflightRef": {
+    "PreflightId": "P20261007T023103Z-01b1",
+    "Location": {
+      "Kind": "CUSTODIED",
+      "Path": "docs/automation/evidence/FX-U1-agent/repair/P20261007T023103Z-01b1.json",
+      "Commit": "badbf9304a270a96cdc13f7c6030e76735517136",
+      "Blob": "5bdc18c0b67ac7b38020c041999bd9635fac8dd0"
+    },
+    "Sha256": "c4448aa99c3d3bfd727774e498e3ee17a9cf271e5ff47c58397fe0dd48aa0fec"
+  },
+  "Eligibility": {
+    "MeasuredInvocation": {
+      "State": "MEASURED",
+      "RunRef": "local_b70524e3-5788-4772-9f90-e2f45d83c350: operación de esta sesión con effort de cliente xhigh observada por get_session(\"self\") a las 2026-10-07T02:31:03.746Z (preflight P20261007T023103Z-01b1), con lecturas, escrituras, commit y push en la misma sesión (commit badbf9304a270a96cdc13f7c6030e76735517136 en origin y github)"
+    },
+    "ConsumptionCovered": "MEASURED",
+    "CatalogVerifiedOn": "2026-09-30",
+    "Stale": false
+  },
+  "Independence": {
+    "Requirements": [],
+    "Satisfaction": []
+  },
+  "RejectedAlternatives": [
+    "claude-desktop-session, sesión local_6dde7eb6-06c0-4d21-ad94-94849115d6c4 (binding B20261006T220601Z-cfe1): titular liberado en el QH r3; no vuelve a operar (orden FX-U1-O3)",
+    "codex-cli: transporte detenido por cambio de huella (P-01); la orden FX-U1-O3 §7 prohíbe invocarlo",
+    "codex-desktop-session: no es esta sesión; sin preflight de la unidad, el rol y la acción",
+    "claude-cli: no es una sesión de nivel superior que orqueste; sin preflight",
+    "claude-subagent: comparte la sesión de su padre; no puede ser el Principal; sin preflight; la orden FX-U1-O3 §7 prohíbe lanzar subagentes"
+  ],
+  "RoutingReason": "routing.md §9 sobre §8 (PRINCIPAL_COORDINATION, CUSTODY) y RoleRequirements[PRINCIPAL_COORDINATOR] del contrato FX-U1-T1 (Mandatory = los cinco de CUSTODY, sin Independence ni EligibleCells): única candidata con preflight vigente para FX-U1/PRINCIPAL_COORDINATOR/CUSTODY (P20261007T023103Z-01b1), con level, effort, remote-facts, introspection y repo-write en MATCH (ConfigurationStatus MATCH); celda claude-desktop-session:claude-opus-5-5:Long-horizon; catálogo model-catalog.md blob 166d978d114e635bbef67e295c2ec1da73af6d1f verificado el 2026-09-30, no STALE; consumo medido: get_usage informa plan Max por suscripción, extraUsage deshabilitado y sin aviso de límite",
+  "EscalationConditions": [
+    "effort observado por debajo de Long-horizon: CUSTODY en BELOW_REQUIRED y STOP P-09 de CUSTODY (16.16)",
+    "cambio de un invalidador del preflight (host, versión o ruta del adapter, autenticación, huella, blob del catálogo o de routing.md): observación nueva, sin reconfiguración automática",
+    "aviso de límite de uso o de créditos: consumo no cubierto (P-10) y decisión del Coordinator",
+    "main avanzado respecto de effective_sha antes del QR: toma con rebase (T22, I62-REBASE-TAKEOVER), fuera de la designación ORDINARY de la orden FX-U1-O3",
+    "binding REJECTED en la designación: sin titular aceptado; ningún QR"
+  ],
+  "CountersSnapshot": {
+    "Attempts": 0,
+    "CorrectionLaunches": [],
+    "BlockedReruns": [],
+    "RebaseRecoveries": [],
+    "Invocations": []
+  },
+  "Custody": {
+    "FromBindingId": "B20261006T220601Z-cfe1",
+    "CessionRunId": null
+  },
+  "Acceptance": {
+    "State": "PENDING",
+    "Basis": null,
+    "DecisionRef": null,
+    "AuthorizationRef": null,
+    "MaterializationCheck": null,
+    "Utc": null
+  }
+}

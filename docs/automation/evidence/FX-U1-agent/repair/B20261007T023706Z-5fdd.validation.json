@@ -1,0 +1,31 @@
+{
+  "BindingId": "B20261007T023706Z-5fdd",
+  "File": "B20261007T023706Z-5fdd.json",
+  "FileSha256": "d1cee14e8cae4c2b2274899ab1a7e601db4602fb9848cf55124e93b177ba9831",
+  "AuthorityRevision": "badbf9304a270a96cdc13f7c6030e76735517136",
+  "PowerShell": {
+    "Edition": "Core",
+    "Version": "7.6.6"
+  },
+  "Phase1": {
+    "Schema": "docs/automation/agent-execution/schemas/binding.v1.schema.json",
+    "Blob": "13501476b775ca18c4c61ba3e1793796b51067d9",
+    "Command": "Test-Json -SchemaFile",
+    "Result": true
+  },
+  "Rules": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "B4": true,
+    "B5": true,
+    "B6": true,
+    "B7": true,
+    "B8": true,
+    "B9": true,
+    "B10": true
+  },
+  "Notes": "B3: el contrato FX-U1-T1 no limita las celdas de PRINCIPAL_COORDINATOR (EligibleCells vacío). B4: preflight P20261007T023103Z-01b1 CUSTODIED en badbf93 (blob y SHA-256 comprobados, validación aceptada, invalidadores iguales a los actuales); filas de routing.md §8 (CUSTODY) más los Mandatory del contrato, todas en MATCH. B6: el contrato no pide independencia para PRINCIPAL_COORDINATOR. B8 y B9 no aplican con Acceptance PENDING. B10: primer registro de este BindingId. Custody.FromBindingId = B20261006T220601Z-cfe1 (titular liberado en el QH r3; rebinding del mismo rol y ámbito). Eligibility.MeasuredInvocation: la celda es la propia sesión del Principal (el descriptor no la invoca); se mide su operación en esta sesión. ConsumptionCovered MEASURED: get_usage informa plan Max por suscripción, extraUsage deshabilitado y sin aviso de límite.",
+  "ValidatedUtc": "2026-10-07T02:39:20.833Z",
+  "Accepted": true
+}
