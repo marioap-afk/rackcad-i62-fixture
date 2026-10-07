@@ -92,3 +92,15 @@ normativa y queda sustituida por esta lectura.
 6. **Validación.** Antes de cada push, valida el punto (esquema, `StateRef` en el árbol del propio commit, par con el punto anterior). Una violación no se
    publica: STOP y espera aquí.
 7. **Transportes y plano (c).** No invoques `codex-cli` ni lances subagentes. No nombres, no configures y no uses ningún repositorio real (P-16).
+
+## Designación acotada del titular de reparación R (Coordinator del fixture; orden FX-U1-O3)
+
+Terminación del titular anterior acreditada por la sesión de supervisión (metadatos `isRunning` = false desde 2026-10-06T23:17:18Z, sin actividad tras el
+QH r3 `ae25b596`). Observación de R `P20261007T023103Z-01b1` (CUSTODY: MATCH, ELIGIBLE; commit `badbf930`) y propuesta `B20261007T023706Z-5fdd`
+(`rackcad-binding/v1`, PRINCIPAL_COORDINATOR, `Scope` UNIT; commit `9ce50a52`) validadas contra los esquemas del fixture. Designación acotada a la
+reparación de la orden FX-U1-O3: el QR ORDINARY (T16) con los `StateRef` al archivo de decisiones refrescados y el QH inmediato; nada más.
+
+```text
+I62-PRINCIPAL-BINDING: B20261007T023706Z-5fdd ACCEPTED
+Claim-Id: fc62f1c7-0000-4000-8000-000000000001
+```
