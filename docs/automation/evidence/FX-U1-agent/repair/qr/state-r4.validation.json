@@ -1,0 +1,98 @@
+{
+  "State": "docs/automation/state/FX-U1.yml",
+  "RecordVersion": 4,
+  "Point": "QR",
+  "Transition": "T16",
+  "PreviousPoint": {
+    "Commit": "f4f5929ff1ba995ae8e0c387b76a79eeca7ca886",
+    "RecordVersion": 3,
+    "Point": "QH"
+  },
+  "FileSha256": "adc09fb441c164fd8d667e1be5508f4c08f0f3f83f5ddb352eca062bc542652f",
+  "PowerShell": {
+    "Edition": "Core",
+    "Version": "7.6.6"
+  },
+  "Phase1": {
+    "Schema": "docs/automation/agent-execution/schemas/automation-state.v2.schema.json",
+    "Blob": "b1105dc1c5ea29d1a717eefea03e5242423762d8",
+    "Command": "YAML (PyYAML safe_load, claves únicas) -> JSON | Test-Json -SchemaFile",
+    "Result": true
+  },
+  "Checks": {
+    "Schema": true,
+    "CanonicalKeys": true,
+    "StateRefsInTree": true,
+    "DecisionRefsRefreshed": true,
+    "NoSelfReference": true,
+    "TargetResolves": true,
+    "CasRecordVersion": true,
+    "ProtocolImmutable": true,
+    "G0DecisionUnchanged": true,
+    "DecisionsAppendOnly": true,
+    "ImmutableIdentity": true,
+    "CountersUnchanged": true,
+    "TaskIntentUnchanged": true,
+    "WindowUntouched": true,
+    "OrchestrationUntouched": true,
+    "MainNotAdvanced": true,
+    "PrincipalBindingAccepted": true,
+    "T16_FromQH": true,
+    "QrShape": true,
+    "NewHolder": true,
+    "LastEvidenceCommitAncestor": true
+  },
+  "StateRefs": [
+    {
+      "Field": "protocol.g0_acceptance.decision",
+      "Path": "docs/automation/decisions/FX-U1.md",
+      "Blob": "b7cff537185c8347a5ea3dc3935a2333d03045cf"
+    },
+    {
+      "Field": "custody.principal.binding",
+      "Path": "docs/automation/evidence/FX-U1-agent/repair/qr/B20261007T023706Z-5fdd.json",
+      "Blob": "432198b272b4aaf88baea51dcae45dc477d7c95d"
+    },
+    {
+      "Field": "custody.principal.acceptance.decision",
+      "Path": "docs/automation/decisions/FX-U1.md",
+      "Blob": "b7cff537185c8347a5ea3dc3935a2333d03045cf"
+    },
+    {
+      "Field": "custody.principal.preflight",
+      "Path": "docs/automation/evidence/FX-U1-agent/repair/P20261007T023103Z-01b1.json",
+      "Blob": "5bdc18c0b67ac7b38020c041999bd9635fac8dd0"
+    },
+    {
+      "Field": "custody.principal.designation",
+      "Path": "docs/automation/decisions/FX-U1.md",
+      "Blob": "b7cff537185c8347a5ea3dc3935a2333d03045cf"
+    },
+    {
+      "Field": "custody.task_intent.contract",
+      "Path": "docs/automation/decisions/FX-U1-T1.gate-contract.json",
+      "Blob": "628d89af5f21e4e14cbe7c3c14f0dd8fb5a490e0"
+    },
+    {
+      "Field": "orchestration.next_action.required_inputs[0]",
+      "Path": "docs/automation/decisions/FX-U1-T1.gate-contract.json",
+      "Blob": "628d89af5f21e4e14cbe7c3c14f0dd8fb5a490e0"
+    },
+    {
+      "Field": "orchestration.next_action.required_inputs[1]",
+      "Path": "docs/automation/decisions/FX-U1.md",
+      "Blob": "b7cff537185c8347a5ea3dc3935a2333d03045cf"
+    },
+    {
+      "Field": "orchestration.budgets.caps",
+      "Path": "docs/AUTOMATION_PLAN.md",
+      "Blob": "f525cb1e9d24db3cf5fa5c8e013be7edbdb5e6a5"
+    }
+  ],
+  "Notes": "QR ORDINARY (T16) desde el QH r3 ae25b59, sin avance de main (origin/main = github/main = effective_sha fbe2534). DesignaciÃ³n acotada del Coordinator en 1d2f14b (fe de erratas del commit de la propuesta en f4f5929; marcador I62-PRINCIPAL-BINDING: B20261007T023706Z-5fdd ACCEPTED con el Claim-Id de la unidad, una sola vez) y terminaciÃ³n del titular anterior acreditada en ella por la sesiÃ³n de supervisiÃ³n. Lectura del Coordinator (orden FX-U1-O3): todo StateRef a docs/automation/decisions/FX-U1.md se refresca al blob del archivo en el Ã¡rbol de este punto (b7cff53): protocol.g0_acceptance.decision, custody.principal.acceptance.decision, custody.principal.designation y orchestration.next_action.required_inputs[1]. El archivo solo creciÃ³ por aÃ±adido desde bdc8e4d (bdc8e4d -> 7001b41 -> 08af8d9 -> b7cff53, cada uno prefijo del siguiente): la decisiÃ³n G0 original y sus marcadores siguen sin cambio y g0_acceptance.state sigue ACCEPTED. last_evidence_commit = f4f5929 (designaciÃ³n con su fe de erratas). Control: el mismo validador sobre el QH r3 da StateRefsInTree y DecisionRefsRefreshed en false.",
+  "NotExecuted": [
+    "I-S01..I-S18, I-P01..I-P13, I-H01, I-H02: los validadores deterministas de tests/RackCad.Tests (README §17.5) no existen en este fixture; se registran como no ejecutadas, nunca como superadas"
+  ],
+  "ValidatedUtc": "2026-10-07T03:35:58.739Z",
+  "Accepted": true
+}

@@ -1,0 +1,35 @@
+{
+  "BindingId": "B20261007T023706Z-5fdd",
+  "File": "B20261007T023706Z-5fdd.json",
+  "FileSha256": "a0d979f2945ac2318bd35c7cd597b3f9d1d8a62c0f2a0abf6aebe43e6719c5e6",
+  "PreviousVersion": {
+    "Path": "docs/automation/evidence/FX-U1-agent/repair/B20261007T023706Z-5fdd.json",
+    "Blob": "c27e6a555036a3ad02716b06721e50c0aaaf364a"
+  },
+  "AuthorityRevision": "f4f5929ff1ba995ae8e0c387b76a79eeca7ca886",
+  "PowerShell": {
+    "Edition": "Core",
+    "Version": "7.6.6"
+  },
+  "Phase1": {
+    "Schema": "docs/automation/agent-execution/schemas/binding.v1.schema.json",
+    "Blob": "13501476b775ca18c4c61ba3e1793796b51067d9",
+    "Command": "Test-Json -SchemaFile",
+    "Result": true
+  },
+  "Rules": {
+    "B1": true,
+    "B2": true,
+    "B3": true,
+    "B4": true,
+    "B5": true,
+    "B6": true,
+    "B7": true,
+    "B8": true,
+    "B9": true,
+    "B10": true
+  },
+  "Notes": "B10: única diferencia con la versión PENDING (repair/, commit 9ce50a5) es Acceptance (PENDING -> ACCEPTED, INDIVIDUAL_DECISION). B9: el marcador figura una sola vez, en un bloque cercado con el Claim-Id de la unidad, en la designación acotada del Coordinator (commit 1d2f14b; fe de erratas del commit de la propuesta en f4f5929, sin cambio del marcador ni del BindingId). Utc = instante del commit de la designación (1d2f14b). B4: preflight P20261007T023103Z-01b1 vigente; get_session(\"self\") a las 2026-10-07T03:31:21.280Z con la misma sesión, modelo y effort; invalidadores sin cambio. B6: el contrato no pide independencia para PRINCIPAL_COORDINATOR.",
+  "ValidatedUtc": "2026-10-07T03:31:54.918Z",
+  "Accepted": true
+}

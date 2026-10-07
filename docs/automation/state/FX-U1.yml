@@ -7,8 +7,8 @@ automation_state:
   state: waiting
   gate: owner-decision
   attempts: 0
-  next_action: Designación por el Coordinator de un titular nuevo de FX-U1 (QR, T16; T22 con avance de main) para planificar T1; el titular liberado no opera
-  last_evidence_commit: 5a3a7d69d650dfa9d0349c5464e245936dc2e187
+  next_action: QH inmediato del titular de reparación R (T17, orden FX-U1-O3 §4) sin cambios semánticos nuevos; después, designación por el Coordinator de un titular nuevo de FX-U1 para planificar T1
+  last_evidence_commit: f4f5929ff1ba995ae8e0c387b76a79eeca7ca886
 protocol:
   set: rackcad-protocol/I62
   effective_sha: fbe25347799e5b801ef708454212335537448bd1
@@ -22,28 +22,30 @@ protocol:
     state: ACCEPTED
     decision:
       path: docs/automation/decisions/FX-U1.md
-      blob: bdc8e4ddc0d939bf4a0622b26487dca1b58c304f
+      blob: b7cff537185c8347a5ea3dc3935a2333d03045cf
 custody:
-  record_version: 3
-  point: QH
-  point_kind: null
+  record_version: 4
+  point: QR
+  point_kind: ORDINARY
   last_rebase: null
   rebase_history: []
   principal:
-    state: RELEASED
+    state: HELD
     binding:
-      path: docs/automation/evidence/FX-U1-agent/g0/B20261006T220601Z-cfe1.json
-      blob: eb68b0bd9c9c0169a10f649ab1ef82fa083341a0
+      path: docs/automation/evidence/FX-U1-agent/repair/qr/B20261007T023706Z-5fdd.json
+      blob: 432198b272b4aaf88baea51dcae45dc477d7c95d
     acceptance:
       state: ACCEPTED
       decision:
         path: docs/automation/decisions/FX-U1.md
-        blob: bdc8e4ddc0d939bf4a0622b26487dca1b58c304f
+        blob: b7cff537185c8347a5ea3dc3935a2333d03045cf
     preflight:
-      path: docs/automation/evidence/FX-U1-agent/bootstrap/P20261006T220134Z-20ab.json
-      blob: 1e5bffb480bd978805ae8ecaa9ca89a7c43eac99
-    designation: null
-    since_record_version: 1
+      path: docs/automation/evidence/FX-U1-agent/repair/P20261007T023103Z-01b1.json
+      blob: 5bdc18c0b67ac7b38020c041999bd9635fac8dd0
+    designation:
+      path: docs/automation/decisions/FX-U1.md
+      blob: b7cff537185c8347a5ea3dc3935a2333d03045cf
+    since_record_version: 4
   window:
     seq: 0
     state: CLOSED
@@ -68,10 +70,10 @@ counters:
   invocations: []
 execution_context:
   adapter_id: claude-desktop-session
-  session_id: local_6dde7eb6-06c0-4d21-ad94-94849115d6c4
+  session_id: local_b70524e3-5788-4772-9f90-e2f45d83c350
   reported_model: claude-opus-5-5
   reported_effort: xhigh
-  observed_utc: "2026-10-06T23:16:18.903Z"
+  observed_utc: "2026-10-07T03:31:21.280Z"
 orchestration:
   loop:
     type: NONE
@@ -82,7 +84,7 @@ orchestration:
     action_validity: null
   next_action:
     role: PRINCIPAL_COORDINATOR
-    action: TAKE_CUSTODY_AFTER_DESIGNATION
+    action: RELEASE_CUSTODY
     target:
       commit: d30fb6a9d26c0b5cb189a30b98ec97d0edcb7b99
       path: docs/automation/decisions/FX-U1-T1.gate-contract.json
@@ -94,7 +96,7 @@ orchestration:
       - path: docs/automation/decisions/FX-U1-T1.gate-contract.json
         blob: 628d89af5f21e4e14cbe7c3c14f0dd8fb5a490e0
       - path: docs/automation/decisions/FX-U1.md
-        blob: 7001b419fb35a8d603818a0ca82d4ae1b82169b3
+        blob: b7cff537185c8347a5ea3dc3935a2333d03045cf
     required_capabilities:
       - PRINCIPAL_COORDINATION.level
       - PRINCIPAL_COORDINATION.effort
@@ -104,15 +106,15 @@ orchestration:
     required_independence: NOT_REQUIRED
     invocation_permission: null
     budget_remaining: {}
-    expected_output: QR ORDINARY con el titular nuevo y su binding aceptado; después, Q0 de T1 con el binding aceptado del Controller de planificación
-    completion_condition: "designación del Coordinator en docs/automation/decisions/FX-U1.md con I62-PRINCIPAL-BINDING: <BindingId> ACCEPTED y el Claim-Id de la unidad"
+    expected_output: "QH (T17) inmediato: principal RELEASED y ventana CLOSED, sin cambios semánticos nuevos y con todos los StateRef resolviendo en su propio árbol"
+    completion_condition: QH publicado en origin y en github; después, el titular de reparación R termina su sesión
     stop_conditions:
-      - "QH: el titular liberado no opera después"
-      - "P-10: Controller de planificación sin binding aceptado: no se vincula ni se invoca"
+      - "designación acotada (orden FX-U1-O3): ni decisión G0 nueva, ni cambio de T1, ni Q0, ni planificación, ni delegaciones, ni invocaciones"
+      - "punto que no valida (esquema, StateRef en su árbol, par con el anterior): no se publica; STOP y espera en docs/automation/decisions/FX-U1.md"
       - "P-01: codex-cli detenido hasta autorización del Coordinator"
       - "P-16: ningún repositorio real"
     escalation_conditions:
-      - "main avanzado respecto de effective_sha: toma con rebase (T22, I62-REBASE-TAKEOVER) y un QR REBASE_RECONCILIATION"
+      - "main avanzado respecto de effective_sha antes del QH: STOP sin publicar y decisión del Coordinator"
   review_requests: []
   findings: []
   architect_budgets: []
