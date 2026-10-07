@@ -55,3 +55,40 @@ Contract: docs/automation/decisions/FX-U1-T1.gate-contract.json (rackcad-gate-co
 3. **Terminación.** Tras el push del QH, termina tu sesión: no hagas nada más en este repositorio.
 4. **Transportes.** No invoques `codex-cli` ni lances subagentes en esta orden.
 5. **Plano (c).** No nombres, no configures y no uses ningún repositorio real (P-16).
+
+## Orden FX-U1-O3 — reparación del QH r3 por un titular temporal R (T16 → QR ORDINARY → QH)
+
+```text
+FIXTURE-ORDER: FX-U1-O3
+Unit: FX-U1
+Plane: c (TEST-ACTIVATION)
+Repairs: QH ae25b596a11fe3508ac60a3ef7de5dc23df971ce (record_version 3)
+```
+
+**Hecho.** El QH r3 viola I-S13 e I-S16: `protocol.g0_acceptance.decision` y `custody.principal.acceptance.decision` citan
+`docs/automation/decisions/FX-U1.md` con el blob `bdc8e4ddc0d939bf4a0622b26487dca1b58c304f`, que ya no es el del archivo en el árbol del punto (el archivo de
+decisiones solo crece por añadido). Ninguna otra invariante de archivo, de par ni de historia falla. El QH r3 se conserva como evidencia histórica: no se
+reescribe, no se enmienda y su titular liberado no vuelve a operar.
+
+**Lectura de este Coordinator.** «`protocol.g0_acceptance` cambia una sola vez» se refiere a la transición semántica de la aceptación (PENDING → ACCEPTED o
+REJECTED), no a la identidad física del blob de un `StateRef` cuyo destino es un archivo de decisiones que solo crece por añadido. Con G0 aceptado: el estado
+sigue ACCEPTED, la decisión y su marcador siguen siendo los mismos, la ruta no cambia y el blob del `StateRef` debe resolver en el árbol del punto durable
+vigente; cuando el archivo crece, el blob se refresca al del archivo en ese árbol. La respuesta dada dentro de la sesión del titular anterior no es autoridad
+normativa y queda sustituida por esta lectura.
+
+**Titular de reparación R** (designación acotada; no es el titular anterior ni la sesión que medirá la reanudación):
+1. **Observación.** Tu preflight `rackcad-preflight/v1` para CUSTODY con la observación del runtime ligada a su instante (`get_session`). Con BELOW_REQUIRED o
+   UNKNOWN: STOP P-09 y espera.
+2. **Propuesta.** Con CUSTODY en MATCH o ABOVE_REQUIRED, tu binding `rackcad-binding/v1` (rol PRINCIPAL_COORDINATOR, `Scope` UNIT, aceptación PENDING).
+   Publica la observación y la propuesta en `docs/automation/evidence/FX-U1-agent/repair/` de `fx/u1` (push a `origin` y a `github`), **sin** escribir el
+   estado. Después espera aquí la designación de este Coordinator con `I62-PRINCIPAL-BINDING: <tu BindingId> ACCEPTED`.
+3. **QR ORDINARY** (T16), tras la designación: `record_version` siguiente; titular HELD con tu binding aceptado y tu preflight custodiados; la designación
+   por `StateRef`; **todo** `StateRef` a `docs/automation/decisions/FX-U1.md` refrescado al blob del archivo en el árbol del QR; `g0_acceptance.state`
+   ACCEPTED y la decisión G0 original sin cambio semántico; contadores, `task_intent` y contrato de T1 sin cambios. Ni decisión G0 nueva, ni cambio de T1,
+   ni Q0, ni planificación, ni delegaciones, ni invocaciones.
+4. **QH** (T17), inmediatamente después: titular RELEASED, ventana CLOSED, sin cambios semánticos nuevos y con todos los `StateRef` resolviendo en su propio
+   árbol. Push a `origin` y a `github`.
+5. **Terminación.** Tras el push del QH, termina tu sesión: no hagas nada más en este repositorio.
+6. **Validación.** Antes de cada push, valida el punto (esquema, `StateRef` en el árbol del propio commit, par con el punto anterior). Una violación no se
+   publica: STOP y espera aquí.
+7. **Transportes y plano (c).** No invoques `codex-cli` ni lances subagentes. No nombres, no configures y no uses ningún repositorio real (P-16).
