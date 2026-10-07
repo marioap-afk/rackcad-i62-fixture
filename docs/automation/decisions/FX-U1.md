@@ -104,3 +104,5 @@ reparación de la orden FX-U1-O3: el QR ORDINARY (T16) con los `StateRef` al arc
 I62-PRINCIPAL-BINDING: B20261007T023706Z-5fdd ACCEPTED
 Claim-Id: fc62f1c7-0000-4000-8000-000000000001
 ```
+
+**Fe de erratas de la designación anterior:** el commit de la propuesta `B20261007T023706Z-5fdd` es `9ce50a5ec3dad421c277424c3df861b3591ac224` (no `9ce50a52`); el marcador y el `BindingId` no cambian.
