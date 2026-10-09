@@ -19,4 +19,10 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-      - run: dotnet test tests/Fixture.Tests/Fixture.Tests.csproj -c Release
+      - run: dotnet test tests/Fixture.Tests/Fixture.Tests.csproj -c Release --logger "trx;LogFileName=fixture-tests.trx" --results-directory TestResults
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fixture-tests-trx
+          path: TestResults/fixture-tests.trx
+          if-no-files-found: error
